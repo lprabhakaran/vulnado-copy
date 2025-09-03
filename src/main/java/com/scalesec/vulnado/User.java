@@ -58,6 +58,14 @@ public class User {
       e.printStackTrace();
       System.err.println(e.getClass().getName()+": "+e.getMessage());
     } finally {
+      
+    if (stmt != null) {
+        try {
+            stmt.close(); // This releases database resources
+        } catch (SQLException e) {
+            e.printStackTrace(); // Handle close exception
+        }
+    }
       return user;
     }
   }
