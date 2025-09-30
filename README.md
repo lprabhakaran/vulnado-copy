@@ -6,6 +6,7 @@ test run - 003
 test run - 004
 test run - 005
 test run - 006
+test run - 007
 
 This application and exercises will take you through some of the OWASP top 10 Vulnerabilities and how to prevent them.
 
