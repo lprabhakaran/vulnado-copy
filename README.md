@@ -1,4 +1,4 @@
-# Vulnado - Intentionally Vulnerable Java Application
+# Vulnado - Intentionally Vulnerable Java Application test
 
 test run - 001
 test run - 002
