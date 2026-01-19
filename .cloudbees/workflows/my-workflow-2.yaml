@@ -16,4 +16,4 @@ jobs:
         uses: cloudbees-io/snyk-sca-plugin@v1
         with:
           org-id: ${{ vars.SNYK_ORG_ID }}
-          snyk-token: ${{ secrets.SNYK_TOKEN}}
+          snyk-token: ${{ vars.SNYK_TOKEN}}
