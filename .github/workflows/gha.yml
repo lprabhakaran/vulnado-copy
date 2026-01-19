@@ -3,7 +3,7 @@ name: snyk-sca-publish-scan
 on:
   push:
     branches:
-      - test-gha-action
+      - master
 
 jobs:
   snyk-sca-scan:
