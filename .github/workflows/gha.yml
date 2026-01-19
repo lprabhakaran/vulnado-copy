@@ -1,0 +1,31 @@
+name: snyk-sca-publish-scan
+
+on:
+  push:
+    branches:
+      - test-gha-action
+
+jobs:
+  snyk-sca-scan:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read 
+      
+    steps:
+      - name: Checkout repository code
+        uses: actions/checkout@v3
+
+      - name: Workflow detail api request
+        shell: bash
+        run: |
+          echo "Ref name is $GITHUB_RUN_ID"
+          echo "Source is ${{ github.server_url }}/${{ github.repository }}"
+          echo "Subject is $GITHUB_WORKFLOW_REF|${{ github.run_id }}|${{ github.run_attempt }}|${{ github.run_number }}"
+          echo "Job is $GITHUB_JOB"
+          echo "Step id is ${{ steps.internal.id }}"
+      - name: Snyk sca scan
+        uses: cloudbees-io-gha/snyk-sca-publish@v1
+        with:
+          org-id: ${{ vars.SNYK_ORG_ID }}
+          snyk-token: ${{ secrets.SNYK_TOKEN}}
